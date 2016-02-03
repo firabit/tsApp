@@ -47,6 +47,8 @@ namespace ngApp
 
             services.AddEntityFramework()
                 .AddSqlServer()
+                .AddDbContext<MoviesDbContext>(options =>
+                    options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]))
                 .AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
 
